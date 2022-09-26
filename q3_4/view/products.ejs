@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+    <div class="container" style="display: flex; gap: 1rem;">
+            <% for(item of products) { %>
+                <div class="product" style="border: 1px solid black; width: 25%; padding: 5px;">
+                    <b><%= item.name %></b> <br>
+                    <%= item.description %> <br>
+                    <%= item.price %> <br><br>
+                    <form action="/addToCart/<%= item.id %>" method="POST">
+                        <input type="hidden" name="id" value=<%= item.id %>>
+                        <input type="submit" value="Add to cart" style="padding: 5px;">
+                    </form>
+                </div>
+            <% } %>
+        </div>
+</body>
+</html>
